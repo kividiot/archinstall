@@ -90,4 +90,108 @@ Bootstrap the system, you can replace vim with nano if you like or install both 
 ```
 pacstrap /mnt base base-devel linux linux-firmware linux-headers vim btrfs-progs cryptsetup
 ```
+Generate the fstab
+```
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+Make some niceties before rebooting. 
+```
+arch-chroot /mnt
+```
+Replace Europe/Stockholm with your timezone. 
+```
+ln -s /usr/share/zoneinfo/Europe/Stockholm /etc/localtime
+```
+Save current clock to th hardware clock.
+```
+hwclock –systohc
+```
+Replace HOSTNAME with your desired hostname. 
+```
+echo HOSTNAME > /etc/hostname
+```
+Enable locales, in my case "en_US.UTF-8 UTF-8" and "sv_SE.UTF-8 UTF-8", you can see later how to set different LC_ values for localization.
+```
+vim /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+```
+Set your keymap to persist. In my case sv-latin1
+```
+echo "KEYMAP=sv-latin1" > /etc/vconsole.conf
+```
+Update your packages, and install some extras. Add wpa_supplicant for wifi.
+```
+pacman -Syu
+pacman -S networkmanager lvm2 dialog
+systemctl enable NetworkManager
+```
+Add a user
+```
+useradd -m -G wheel USERNAME
+passwd USERNAME
+```
+Set root password
+```
+passwd
+```
+Edit /etc/sudoers file and remove the "# " infront of %wheel
+```
+vim /etc/sudoers
+```
+## Setting up the boot
+Install microcode updates
+```
+For AMD: pacman -S amd-ucode
+For intel: pacman -S amd-ucode
+```
+We will need to setup the HOOKS for the boot
+```
+vim /etc/mkinitcpio.conf
 
+HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt lvm2 btrfs filesystems resume fsck)
+```
+Apply the settings, there will be some "WARNING", we will sort them later in the guide.
+```
+mkinitcpio -p linux
+```
+Install the bootloader
+```
+bootctl install
+```
+To setup the entry for the loader we will need the UUID of the partition, well write the value to the file and copy it to the correct place
+```
+blkid /dev/nvme0n1p2 -o value -s UUID >  /boot/loader/entries/arch.conf 
+```
+Edit the file
+```
+vim /boot/loader/entries/arch.conf
+```
+It will just contain the UUID for now, edit it to look like and replacing THEUUIDHERE with the actual UUID, if you don't want Zswap enabled, remove everything after "quiet", if you want a verbose boot, remove "quiet". If you are running on an Intel CPU, replace the "initrd /amd-ucode.img" with "initrd /intel-ucode.img".
+```
+title Arch Linux
+linux /vmlinuz-linux
+initrd /amd-ucode.img
+initrd /initramfs-linux.img
+options cryptdevice=UUID=THEUUIDHERE:lvm:allow-discards rw resume=/dev/mapper/system-swap root=/dev/mapper/system-root rootflags=subvol=@ rootfstype=btrfs quiet zswap.enabled=1 zswap.compressor=zstd zswap.max_pool_percent=20 zswap.zpool=z3fold
+```
+## Finishing up
+Leave the chroot encironment
+```
+exit
+```
+Umount the filesystems
+```
+umount -R /mnt
+```
+And reboot
+```
+reboot
+```
+## Installing nvidia drivers
+
+## Installing a GNOME desktop
+
+## Installing yay
+
+## Installing some packages I like
