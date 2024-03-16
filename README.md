@@ -211,6 +211,11 @@ Update system
 ```
 sudo pacman -Syu
 ```
+Fix faster mirrors, replace Sweden with your country or check "reflector --list-countries"
+```
+sudo pacman -S reflector
+sudo reflector --threads 5 -c Sweden -p https -n 5 --save /etc/pacman.d/mirrorlist
+```
 ## Installing yay
 For faster install, lets bump up how many cores we can use during install
 ```
