@@ -11,7 +11,7 @@ To boot the USB use the method of how your system does it, usually with DEL, ESC
 
 ## Prepping the install
 
-Load keymap of your choosing, US peeps only eed use the freedom keymap already provided. For my part I use a Swedish keyboard.
+Load keymap of your choosing, US peeps only need use the freedom keymap already provided. For my part I use a Swedish keyboard.
 ```
 loadkeys sv-latin1
 ```
@@ -267,7 +267,7 @@ yay -S gnome-shell-extensions gnome-browser-connector
 ```
 Bunch of tools
 ```
-yay -S --needed rsync
+yay -S --needed rsync wget less
 ```
 ## Gaming related stuff
 Install Discord
