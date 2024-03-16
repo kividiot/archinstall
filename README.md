@@ -250,5 +250,6 @@ Enable gdm and reboot
 systemctl enable gdm
 reboot
 ```
+## Enable firewall
 
 ## Installing some packages I like
