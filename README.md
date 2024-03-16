@@ -239,7 +239,7 @@ makepkg -si
 yay -S --needed wayland
 yay -S --needed gdm
 yay -S --needed xorg-xwayland xorg-xlsclients glfw-wayland
-yay -S --needed gnome
+yay -S --needed gnome gnome-terminal
 ```
 If using a Nvidia graphics card also install
 ```
@@ -253,3 +253,28 @@ reboot
 ## Enable firewall
 
 ## Installing some packages I like
+Install fonts
+```
+yay -S gnu-free-fonts noto-fonts ttf-liberation ttf-roboto-mono ttf-google-fonts-git
+```
+Install firefox
+```
+yay -S firefox
+```
+Install Gnome extensions, goto https://extensions.gnome.org/, I recommend atleast "Dock from Dash"
+```
+yay -S gnome-shell-extensions gnome-browser-connector
+```
+Bunch of tools
+```
+yay -S --needed rsync
+```
+## Gaming related stuff
+Final Fantasy XIV
+```
+yay -S xivlauncher
+```
+Lutris
+```
+yay -S lutris
+```
