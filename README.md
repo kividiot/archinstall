@@ -188,10 +188,62 @@ And reboot
 ```
 reboot
 ```
+## Before we go further, use your normal account from now on
+Enable pacman Color, ParallelDownloads and multilib support
+```
+sudo vim /etc/pacman.conf
+
+#Color
+to
+Color
+
+#ParallelDownloads = 5
+to
+ParallelDownloads = 5
+
+#[multilib]
+#Include = /etc/pacman.d/mirrorlist
+to
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+Update system
+```
+sudo pacman -Syu
+```
+## Installing yay
+For faster install, lets bump up how many cores we can use during install
+```
+sudo vim /etc/makepkg.conf
+
+#MAKEFLAGS="-j16"
+to
+MAKEFLAGS="-jNUMBEROFCORESTOUSE"
+```
+From now on we will use yay to install, update and remove packages. yay works for both normal packages and AUR packages.
+```
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
 ## Installing nvidia drivers
 
 ## Installing a GNOME desktop
-
-## Installing yay
+```
+yay -S --needed wayland
+yay -S --needed gdm
+yay -S --needed xorg-xwayland xorg-xlsclients glfw-wayland
+yay -S --needed gnome gnome-tweaks nautilus-sendto gnome-nettool gnome-usage gnome-multi-writer adwaita-icon-theme xdg-user-dirs-gtk fwupd arc-gtk-theme
+```
+If using a Nvidia graphics card also install
+```
+yay -S --needed egl-wayland
+```
+Enable gdm and reboot
+```
+systemctl enable gdm
+reboot
+```
 
 ## Installing some packages I like
