@@ -239,7 +239,7 @@ makepkg -si
 yay -S --needed wayland
 yay -S --needed gdm
 yay -S --needed xorg-xwayland xorg-xlsclients glfw-wayland
-yay -S --needed gnome gnome-terminal
+yay -S --needed gnome gnome-extra gnone-terminal
 ```
 If using a Nvidia graphics card also install
 ```
@@ -270,11 +270,40 @@ Bunch of tools
 yay -S --needed rsync
 ```
 ## Gaming related stuff
-Final Fantasy XIV
+Install Discord
 ```
-yay -S xivlauncher
+yay -S discord
 ```
-Lutris
+Install tools
+```
+yay -S wine winetricks protontricks gamemode
+```
+Install Final Fantasy XIV
+```
+flatpak install flathub dev.goats.xivlauncher
+```
+Install Lutris
 ```
 yay -S lutris
+```
+Install Steam and protonup-qt
+```
+yay -S steam protonup-qt
+```
+## Fixing errors on mkinitcpio
+Install missing firmware
+```
+yay -S mkinitcpio-firmware
+```
+Fix console font, change 24 to either 28 or 32 for larger font
+```
+yay -S terminus-font
+sudo vim /etc/vconsole.conf
+
+Add lines:
+FONT=ter-p24n
+FONT_MAP=8859-2
+
+Apply with:
+sudo mkinitcpio -p linux
 ```
