@@ -176,7 +176,7 @@ initrd /initramfs-linux.img
 options cryptdevice=UUID=THEUUIDHERE:lvm:allow-discards rw resume=/dev/mapper/system-swap root=/dev/mapper/system-root rootflags=subvol=@ rootfstype=btrfs quiet zswap.enabled=1 zswap.compressor=zstd zswap.max_pool_percent=20 zswap.zpool=z3fold
 ```
 ## Finishing up
-Leave the chroot encironment
+Leave the chroot environment
 ```
 exit
 ```
