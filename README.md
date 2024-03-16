@@ -247,7 +247,7 @@ yay -S --needed egl-wayland
 ```
 Enable gdm and reboot
 ```
-systemctl enable gdm
+sudo systemctl enable gdm
 reboot
 ```
 ## Enable firewall
