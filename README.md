@@ -239,7 +239,7 @@ makepkg -si
 yay -S --needed wayland
 yay -S --needed gdm
 yay -S --needed xorg-xwayland xorg-xlsclients glfw-wayland
-yay -S --needed gnome gnome-tweaks nautilus-sendto gnome-nettool gnome-usage gnome-multi-writer adwaita-icon-theme xdg-user-dirs-gtk fwupd arc-gtk-theme
+yay -S --needed gnome
 ```
 If using a Nvidia graphics card also install
 ```
