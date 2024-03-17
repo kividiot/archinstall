@@ -340,7 +340,35 @@ Apply with:
 sudo mkinitcpio -p linux
 ```
 ## Install Asus G14 kernel and asustools
-
+Kernel with Asus laptop specific modules
+```
+yay -S linux-g14 linux-g14-headers
+```
+Setup loader, replace the title and all -linux with -linux-g14
+```
+sudo cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-g14.conf
+sudo vim /boot/loader/entries/arch-g14.conf
+```
+If you wish to replace the default kernel to boot, change the reference in /boot/loader/loader.conf
+```
+sudo vim /boot/loader/loader.conf
+```
+Reboot to apply the new kernel
 ## Install CachyOS kernel
-
+Performance optimized kernel
+```
+yay -S scx-scheds
+systemctl enable scx.service
+yay -S linux-cacheos linux-cacheos-headers
+```
+Setup loader, replace the title and all -linux with -linux-cacheos
+```
+sudo cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-cacheos.conf
+sudo vim /boot/loader/entries/arch-cacheos.conf
+```
+If you wish to replace the default kernel to boot, change the reference in /boot/loader/loader.conf
+```
+sudo vim /boot/loader/loader.conf
+```
+Reboot to apply the new kernel
 ## Maintenance of the system
