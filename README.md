@@ -307,3 +307,8 @@ FONT_MAP=8859-2
 Apply with:
 sudo mkinitcpio -p linux
 ```
+## Install Asus G14 kernel and asustools
+
+## Install CachyOS kernel
+
+## Maintenance of the system
