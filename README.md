@@ -243,7 +243,28 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 ```
-## Installing nvidia drivers
+## Installing Nvidia drivers
+We'll install the dmks variant of the drivers to get the benefit that it will install on new and other kernels
+```
+yay -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings
+```
+Edit the boot loader config
+```
+sudo vim /boot/loader/entries/arch.conf
+```
+Add to the options line, disable nouveau loading and set drm for the nvidia driver
+```
+options ... modprobe.blacklist=nouveau nvidia-drm.modeset=1
+```
+Edit the mkinitcpio config file
+```
+sudo vim /etc/mkinitcpio.conf
+```
+In the MODULES() part set it to (or add if you have something else there already.
+```
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
+Remove kms from the line HOOKS=(... kms ...)
 
 ## Installing a GNOME desktop
 ```
