@@ -372,3 +372,7 @@ sudo vim /boot/loader/loader.conf
 ```
 Reboot to apply the new kernel
 ## Maintenance of the system
+Enable fstrim timer
+```
+sudo systemctl enable --now fstrim.timer
+```
