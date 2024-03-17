@@ -175,6 +175,17 @@ initrd /amd-ucode.img
 initrd /initramfs-linux.img
 options cryptdevice=UUID=THEUUIDHERE:lvm:allow-discards rw resume=/dev/mapper/system-swap root=/dev/mapper/system-root rootflags=subvol=@ rootfstype=btrfs quiet zswap.enabled=1 zswap.compressor=zstd zswap.max_pool_percent=20 zswap.zpool=z3fold
 ```
+Create a loader file to get a boot menu
+```
+vim /boot/loader/loader.conf
+```
+Change the contant to match you preferences, comment all out for "blazingly fast" boot.
+```
+default arch.conf
+timeout 5
+console-mode keep
+editor no
+```
 ## Finishing up
 Leave the chroot environment
 ```
