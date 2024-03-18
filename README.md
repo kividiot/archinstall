@@ -303,7 +303,8 @@ yay -S gnome-shell-extensions gnome-browser-connector
 ```
 Bunch of tools
 ```
-yay -S --needed rsync wget less btop less nvim zoxide vlc traceroute tcpdump spotify socat pwgen pfetch nmap neofetch lsof lazygit jq go rust gimp 
+yay -S --needed rsync wget less btop less neovim zoxide vlc traceroute tcpdump \
+  spotify socat pwgen pfetch nmap neofetch lsof lazygit jq go rust gimp 
 ```
 ## Gaming related stuff
 Install Discord
