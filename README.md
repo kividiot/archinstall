@@ -282,6 +282,10 @@ Enable gdm and reboot
 sudo systemctl enable gdm
 reboot
 ```
+## Install Bluetooth support
+```
+yay -S bluez bluez-libs bluez-utils
+```
 ## Enable firewall
 
 ## Installing some packages I like
@@ -299,7 +303,7 @@ yay -S gnome-shell-extensions gnome-browser-connector
 ```
 Bunch of tools
 ```
-yay -S --needed rsync wget less
+yay -S --needed rsync wget less btop less nvim zoxide vlc traceroute tcpdump spotify socat pwgen pfetch nmap neofetch lsof lazygit jq go rust gimp 
 ```
 ## Gaming related stuff
 Install Discord
