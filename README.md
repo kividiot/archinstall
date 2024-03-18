@@ -232,7 +232,7 @@ For faster install, lets bump up how many cores we can use during install
 ```
 sudo vim /etc/makepkg.conf
 
-#MAKEFLAGS="-j16"
+#MAKEFLAGS="-j2"
 to
 MAKEFLAGS="-jNUMBEROFCORESTOUSE"
 ```
