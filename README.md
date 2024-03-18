@@ -353,6 +353,11 @@ If you wish to replace the default kernel to boot, change the reference in /boot
 ```
 sudo vim /boot/loader/loader.conf
 ```
+Install Asus tools
+```
+yay -S asusctl supergfxctl rog-control-center
+sudo systemctl enable asusd
+```
 Reboot to apply the new kernel
 ## Install CachyOS kernel
 Performance optimized kernel
