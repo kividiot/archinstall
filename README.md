@@ -104,7 +104,7 @@ ln -s /usr/share/zoneinfo/Europe/Stockholm /etc/localtime
 ```
 Save current clock to th hardware clock.
 ```
-hwclock –systohc
+hwclock --systohc
 ```
 Replace HOSTNAME with your desired hostname. 
 ```
