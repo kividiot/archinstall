@@ -179,7 +179,7 @@ Create a loader file to get a boot menu
 ```
 vim /boot/loader/loader.conf
 ```
-Change the contant to match you preferences, comment all out for "blazingly fast" boot.
+Change the content to match your preferences, comment all out for "blazingly fast" boot.
 ```
 default arch.conf
 timeout 5
