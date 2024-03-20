@@ -46,7 +46,7 @@ gdisk /dev/nvme0n1
 Create the encrypted partition and setup LVM, using LVM for a separate swap partition to enable hybernation. You can change the "system" to something else, but remember to change it in furthers step if so. Also do remember your password..
 ```
 cryptsetup luksFormat /dev/nvme0n1p2
-cryptsetup open /dev/sdX2 cryptlvm
+cryptsetup open /dev/nvme0n1p2 cryptlvm
 pvcreate /dev/mapper/cryptlvm
 vgcreate system /dev/mapper/cryptlvm
 ```
