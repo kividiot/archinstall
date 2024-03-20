@@ -297,7 +297,7 @@ Install firefox
 ```
 yay -S firefox
 ```
-Install Gnome extensions, goto https://extensions.gnome.org/, I recommend atleast "Dock from Dash"
+Install Gnome extensions, goto https://extensions.gnome.org/, I recommend atleast "Dash to Dock"
 ```
 yay -S gnome-shell-extensions gnome-browser-connector
 ```
