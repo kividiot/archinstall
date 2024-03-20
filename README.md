@@ -57,7 +57,7 @@ lvcreate -l +100%FREE system -n root
 ```
 Format the partitions
 ```
-mkfs.vat -F32 /dev/nvme0n1p1
+mkfs.fat -F32 /dev/nvme0n1p1
 mkswap /dev/mapper/system-swap
 mkfs.btrfs /dev/mapper/system-root
 ```
