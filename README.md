@@ -75,12 +75,12 @@ umount /mnt
 Mount the filesystems
 ```
 swapon /dev/mapper/system-swap
-mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@ /dev/nvme0n1p2 /mnt
-mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@home /dev/nvme0n1p2 /mnt/home
-mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@root /dev/nvme0n1p2 /mnt/root
-mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@log /dev/nvme0n1p2 /mnt/var/log
-mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@cache /dev/nvme0n1p2 /mnt/var/cache
-mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@tmp /dev/nvme0n1p2 /mnt/tmp
+mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@ /dev/mapper/system-root/mnt
+mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@home /dev/mapper/system-root /mnt/home
+mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@root /dev/mapper/system-root /mnt/root
+mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@log /dev/mapper/system-root /mnt/var/log
+mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@cache /dev/mapper/system-root /mnt/var/cache
+mount -o defaults,x-mount.mkdir,noatime,compress=zstd,commit=120,subvol=@tmp /dev/mapper/system-root /mnt/tmp
 mkdir /mnt/boot
 mount /dev/nvme0np1 /mnt/boot
 ```
